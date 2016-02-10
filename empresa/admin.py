@@ -30,6 +30,7 @@ class EmpresaAdmin(ModelAdmin):
 def read_logo(id_imagem):
 #    CREATE TABLE IF NOT EXISTS logo_empresa(Id INT PRIMARY KEY, imagem LONGBLOB);
 #    UPDATE empresa SET imagem_b64 = imagem WHERE ID =
+    #fin = open("public\\media\\logo\\thumbnail\\"+str(id_imagem)+".jpg","rb")
     fin = open("public/media/logo/thumbnail/"+str(id_imagem)+".jpg","rb")
 #    img = fin.read()
     image = base64.b64encode(fin.read())
