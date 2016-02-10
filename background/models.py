@@ -8,7 +8,7 @@ class PlanoDeFundo(Padrao):
         verbose_name                = u'Plano de Fundo'
         verbose_name_plural         = u'Planos de Fundo'
     foto                            = ImageField(verbose_name=u'Plano de Fundo',upload_to='background/original',max_length=255,blank=True,null=True)
-    thumbnail                       = ImageField(upload_to='background/thumbnail',max_length=255,blank=True,null=True,editable=False)
+    thumbnail                       = ImageField(upload_to='background/thumbnail',blank=True,null=True,editable=False)
     imagem_b64                      = TextField(blank=True,null=True,editable=False)
 
     def __unicode__(self):
