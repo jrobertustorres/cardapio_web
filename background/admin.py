@@ -11,7 +11,7 @@ import base64
 import MySQLdb
 
 class PlanoDeFundoAdmin(ModelAdmin):
-    list_display = ['foto','data_cadastro']
+    list_display = ['descricao','foto','data_cadastro']
 
     """Metodo declarado para criar miniatura da imagem depois de salvar"""
     def save_model(self, request, obj, form, change):
@@ -21,29 +21,23 @@ class PlanoDeFundoAdmin(ModelAdmin):
             extensao = obj.foto.name.split('.')[-1]
             obj.thumbnail = 'background/thumbnail/%s.%s'%(obj.id, extensao)
             miniatura = Image.open(obj.foto.path)
-            miniatura.thumbnail((300,300), Image.ANTIALIAS)
+            miniatura.thumbnail((800,600), Image.ANTIALIAS)
             miniatura.save(obj.thumbnail.path)
 
             obj.save()
-            read_logo(obj.id)
+            insert_background(obj.id,extensao)
 
-def read_logo(id_imagem):
-#    CREATE TABLE IF NOT EXISTS logo_empresa(Id INT PRIMARY KEY, imagem LONGBLOB);
-#    UPDATE empresa SET imagem_b64 = imagem WHERE ID =
-    #fin = open("public\\media\\logo\\thumbnail\\"+str(id_imagem)+".jpg","rb")
-    fin = open("public/media/background/thumbnail/"+str(id_imagem)+".jpg","rb")
-#    img = fin.read()
+def insert_background(id_imagem,extensao):
+    fin = open("public/media/background/thumbnail/"+str(id_imagem)+"."+extensao,"rb")
     image = base64.b64encode(fin.read())
-    con = MySQLdb.connect("localhost","root","","cardapio_web" )
-    cursor = con.cursor()
     imagem = "data:image/jpg;base64,%s" % image
-    sql = "UPDATE background SET imagem_b64 = "%(1,imagem)
-    #sql = "INSERT INTO logo_empresa(Id,imagem) VALUES ('%d','%s')"%(1,imagem)
-    #sql = "UPDATE empresa SET imagem_b64 = imagem WHERE ID = "%(1,imagem)
-#    print sql
-#    con = MySQLdb.connect("localhost","root","","cardapio" )
+    con = MySQLdb.connect("localhost","root","","cardapio_web")
+    cursor = con.cursor()
+    sqlImagesb64 = "DELETE FROM background_planodefundob64"
+    cursor.execute(sqlImagesb64)
+    sql = "INSERT INTO background_planodefundob64(Id,imagem_b64) VALUES ('%d','%s')"%(id_imagem,imagem)
 
-    cursor.execute (sql)
+    cursor.execute(sql)
     con.commit()
     con.close()
 

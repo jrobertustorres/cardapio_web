@@ -10,12 +10,14 @@ from models import Produto, Categoria
     model = Produto"""
 
 class ProdutoAdmin(ModelAdmin):
-    list_display = ['nome','descricao','preco','categoria','ativo']
+    list_display                    = ['nome','descricao','preco','categoria','ativo']
+    list_filter                     = ['nome','categoria']
     #inlines = [ImagemInline]
     #form = FormImagem
 
 class CategoriaAdmin(ModelAdmin):
     list_display                    = ['nome','ativo']
+    list_filter                     = ['nome']
 
 """class ImagemInline(admin.TabularInline):
     model = Imagem
