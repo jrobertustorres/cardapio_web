@@ -1,13 +1,7 @@
 #coding=utf8
 
-from django.contrib.admin import ModelAdmin, site, TabularInline
+from django.contrib.admin import ModelAdmin, site
 from models import Produto, Categoria
-
-#import base64
-#import MySQLdb
-
-"""class ImagemInline(admin.TabularInline):
-    model = Produto"""
 
 class ProdutoAdmin(ModelAdmin):
     list_display                    = ['nome','descricao','preco','categoria','ativo']

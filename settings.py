@@ -135,10 +135,11 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'grappelli',
+    'grappelli',
     # Uncomment the next line to enable the admin:
-    'bootstrap_admin',
-    'django_admin_bootstrapped',
+    #'bootstrap_admin',
+    #'admin_bootstrap',
+    #'django_admin_bootstrapped',
     'django.contrib.admin',
     #    'django.contrib.',
     'produto',
@@ -146,12 +147,13 @@ INSTALLED_APPS = (
     'galeria',
     'moeda',
     'background',
+    'geo',
 
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
 
-TEMPLATES = [
+"""TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
@@ -173,7 +175,7 @@ TEMPLATES = [
             ]
         },
     },
-]
+]"""
 
 BOOTSTRAP_ADMIN_SIDEBAR_MENU = True
 

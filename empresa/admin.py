@@ -27,6 +27,7 @@ class EmpresaAdmin(ModelAdmin):
 
             obj.save()
             insert_logo(obj.id,extensao)
+        return obj
 
 def insert_logo(id_imagem,extensao):
     fin = open("public/media/logo_empresa/thumbnail/"+str(id_imagem)+"."+extensao,"rb")
