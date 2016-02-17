@@ -11,6 +11,7 @@ class Empresa(Padrao):
     razao_social                    = CharField(verbose_name=u'Razão Social',max_length=100,blank=True,null=True)
     nome_fantasia                   = CharField(verbose_name=u'Nome Fantasia',max_length=100,blank=True,null=True)
     cnpj                            = CharField(verbose_name=u'CNPJ',max_length=20,)
+    telefone                        = CharField(verbose_name=u'Telefone',max_length=20,blank=True,null=True)
     endereco                        = CharField(verbose_name=u'Logradouro',max_length=100,blank=True,null=True)
     numero                          = CharField(verbose_name=u'Número',max_length=100,blank=True,null=True)
     complemento                     = CharField(verbose_name=u'Complemento',max_length=100,blank=True,null=True)

@@ -148,6 +148,7 @@ INSTALLED_APPS = (
     'moeda',
     'background',
     'geo',
+    'anunciante',
 
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',

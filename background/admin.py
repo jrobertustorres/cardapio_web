@@ -11,7 +11,7 @@ import base64
 import MySQLdb
 
 class PlanoDeFundoAdmin(ModelAdmin):
-    list_display = ['descricao','foto','data_cadastro']
+    list_display = ['descricao','data_cadastro']
 
     """Metodo declarado para criar miniatura da imagem depois de salvar"""
     def save_model(self, request, obj, form, change):

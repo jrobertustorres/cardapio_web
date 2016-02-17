@@ -1,5 +1,6 @@
 #-*- coding:utf-8 -*-
 from django.db import models
+from django.db.models import CharField,ForeignKey
 from django.utils.translation import ugettext_lazy as _
 
 class Pais(models.Model):
@@ -13,8 +14,9 @@ class Estado(models.Model):
     class Meta:
         verbose_name        = _(u'Estado')
         verbose_name_plural = _(u'Estados')
-    pais                    = models.ForeignKey(Pais,verbose_name=_(u'País'),related_name='estado')
-    nome                    = models.CharField(verbose_name=_(u'Nome'),max_length=80)
+    pais                    = ForeignKey(Pais,verbose_name=_(u'País'),related_name='estado')
+    nome                    = CharField(verbose_name=_(u'Nome'),max_length=80)
+    uf                      = CharField(verbose_name=u'UF',max_length=2)
     def __unicode__(self):  return u'%s'%self.nome
 
 class Cidade(models.Model):

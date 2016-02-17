@@ -21,8 +21,6 @@ class Produto(Padrao):
     descricao                       = CharField(verbose_name=u'Descrição',max_length=100,blank=True,null=True)
     preco                           = FloatField(verbose_name=u'Preço',blank=True,null=True)
     ativo                           = BooleanField(verbose_name=u'Ativo')
-    #foto                            = ImageField(verbose_name=u'Foto Original',upload_to='produto/original',max_length=255,blank=True,null=True)
-   # thumbnail                       = ImageField(verbose_name=u'Foto Thumbnail',upload_to='produto/thumbnail',max_length=255,blank=True,null=True)
     categoria                       = ForeignKey(Categoria,verbose_name=u'Categoria')
 
     def __unicode__(self):

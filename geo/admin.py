@@ -9,7 +9,7 @@ class PaisAdmin(admin.ModelAdmin):
     list_per_page       = 10
 
 class EstadoAdmin(admin.ModelAdmin):
-    list_display        = ['nome','pais']
+    list_display        = ['nome','uf']
     search_fields       = ['nome','pais__nome']
     list_per_page       = 10
 
